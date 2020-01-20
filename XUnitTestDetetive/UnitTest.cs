@@ -128,10 +128,42 @@ namespace XUnitTestDetetive
            Teoria t1 = new Teoria(s1, l1, a1);
 
             teorias.Add(t1);
-
-
-
-
         }
+
+        [Fact]
+        public void Deve_investigar_crima_com_uma_Teoria()
+        {
+            List<Teoria> teorias = new List<Teoria>();
+            Suspeito s1 = new Suspeito();
+            Local l1 = new Local();
+            Arma a1 = new Arma();
+            Crime crime = new Crime();
+
+            crime.SupeitoId = 1;
+            crime.LocalId = 2;
+            crime.ArmaId = 3;
+
+            s1.Id = 1;
+            s1.Nome = "italo";
+
+            l1.Id = 2;
+            l1.Nome = "Redmond";
+
+            a1.Id = 3;
+            a1.Nome = "Peixeira";
+
+            Teoria t1 = new Teoria(s1, l1, a1);
+            teorias.Add(t1);
+
+            
+
+           var Resultado = crime.InvestigarCrime(teorias, crime);
+
+            Assert.Equal(Retorno.Acertou, Resultado[0]);
+                
+                
+        }
+
+
     }
 }
