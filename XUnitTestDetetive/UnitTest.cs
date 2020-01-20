@@ -40,6 +40,40 @@ namespace XUnitTestDetetive
             Assert.Equal(5, Suspeitos.Count);
         }
 
+       [Fact]
+        public void Deve_ter_5_local()
+        {
+            List<Local> localidades = new List<Local>();
+            Local l1 = new Local();
+            Local l2 = new Local();
+            Local l3 = new Local();
+            Local l4 = new Local();
+            Local l5 = new Local();
+
+            l1.Id = 1;
+            l1.Nome = "Redmond";
+
+            l2.Id = 2;
+            l2.Nome = "Palo Alto";
+
+            l3.Id = 3;
+            l3.Nome = "San Francisco";
+
+            l4.Id = 4;
+            l4.Nome = "São Paulo";
+
+            l5.Id = 5;
+            l5.Nome = "Cupertino";
+
+            localidades.Add(l1);
+            localidades.Add(l2);
+            localidades.Add(l3);
+            localidades.Add(l4);
+            localidades.Add(l5);
+
+            Assert.Equal(5, localidades.Count);
+        }
+
         [Fact]
         public void Deve_ter_5_arma()
         {
@@ -75,37 +109,29 @@ namespace XUnitTestDetetive
         }
 
         [Fact]
-        public void Deve_ter_5_local()
+        public void Deve_ter_uma_ou_mais_teoria()
         {
-            List<Local> localidades = new List<Local>();
+            List<Teoria> teorias = new List<Teoria>();            
+            Suspeito s1 = new Suspeito();
             Local l1 = new Local();
-            Local l2 = new Local();
-            Local l3 = new Local();
-            Local l4 = new Local();
-            Local l5 = new Local();
+            Arma a1 = new Arma();
+
+            s1.Id = 1;
+            s1.Nome = "italo";
 
             l1.Id = 1;
             l1.Nome = "Redmond";
 
-            l2.Id = 2;
-            l2.Nome = "Palo Alto";
+            a1.Id = 1;
+            a1.Nome = "Peixeira";
 
-            l3.Id = 3;
-            l3.Nome = "San Francisco";
+           Teoria t1 = new Teoria(s1, l1, a1);
 
-            l4.Id = 4;
-            l4.Nome = "São Paulo";
+            teorias.Add(t1);
 
-            l5.Id = 5;
-            l5.Nome = "Cupertino";
 
-            localidades.Add(l1);
-            localidades.Add(l2);
-            localidades.Add(l3);
-            localidades.Add(l4);
-            localidades.Add(l5);
 
-            Assert.Equal(5, localidades.Count);
+
         }
     }
 }
