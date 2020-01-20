@@ -31,9 +31,25 @@ namespace XUnitTestDetetive
 
             List<Retorno> retornos = new List<Retorno>();
             for (int i = 0; i < t.Count; i++) {
-                if (t[i].Supeito.Id == c.SupeitoId && t[i].Local.Id == c.LocalId && t[i].Arma.Id == c.ArmaId) {
-                  retornos.Add(Retorno.Acertou);
+                
+                if (t[i].Supeito.Id == c.SupeitoId && t[i].Local.Id == c.LocalId && t[i].Arma.Id == c.ArmaId)
+                {
+                    retornos.Add(Retorno.Acertou);
+                    return retornos;
                 }
+                if (t[i].Supeito.Id != c.SupeitoId)
+                {
+                    retornos.Add(Retorno.ErrouSuspeito);
+                    
+                }
+                if (t[i].Local.Id != c.LocalId)
+                {
+                    retornos.Add(Retorno.ErrouLocal);
+                }
+                if (t[i].Arma.Id != c.ArmaId) {
+                    retornos.Add(Retorno.ErrouArma);
+                }
+                
             }
             return retornos;
             
